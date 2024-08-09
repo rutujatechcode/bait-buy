@@ -3,7 +3,7 @@ use anchor_lang::prelude::*;
 declare_id!("CZAPsG85K3jyiLnVowmc3PACJXHHP4sNcwvhUW1gdoZ2");
 
 #[program]
-mod bait_buy {
+pub mod bait_buy {
     use super::*;
 
     pub fn buy(ctx: Context<Buy>, id: String, amount: u64) -> Result<()> {
@@ -83,7 +83,7 @@ pub struct ChangeAdmin<'info> {
         mut,
         seeds = [b"admin-account".as_ref()],
         bump,
-        has_one = admin // Ensures only the current admin can change the admin
+        has_one = admin 
     )]
     pub admin_account: Account<'info, AdminAccount>,
 }
